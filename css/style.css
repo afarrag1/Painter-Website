@@ -334,3 +334,91 @@ footer {
   }
    /* Order adjustment for alternating content not strictly needed with current HTML structure */
 }
+
+/* Home Details Section (Services, Why Choose Us, Testimonials) */
+.home-details-section {
+  background-color: #f0f4f8; /* Light, distinct background */
+  padding: 40px 0;
+  text-align: center; /* Center its block children if they are inline-block or have auto margins */
+}
+
+.home-details-section h2 {
+  margin-bottom: 30px;
+  /* text-align: center; already centered by parent */
+}
+
+.services-grid,
+.reasons-grid {
+  display: flex;
+  justify-content: space-around; /* Distribute items evenly */
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+  margin-top: 20px;
+}
+
+.service-item,
+.reason-item {
+  background-color: #ffffff;
+  padding: 25px; /* Increased padding */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Slightly enhanced shadow */
+  flex-basis: calc(50% - 40px); /* For 2 items per row on wider screens */
+  text-align: left; /* Override parent's center for item content */
+  margin-bottom: 20px; /* Ensure space when wrapping */
+}
+
+.service-item h3,
+.reason-item h3 {
+  color: #2A52BE; /* Primary blue color */
+  margin-top: 0; /* Remove top margin if it's the first element */
+  margin-bottom: 10px;
+  font-size: 1.4rem; /* Adjusted font size */
+}
+
+.service-item p,
+.reason-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555; /* Slightly lighter text for paragraphs */
+}
+
+#testimonials blockquote {
+  max-width: 700px; /* Slightly wider for better readability */
+  margin: 30px auto; /* Increased top/bottom margin */
+  padding: 25px; /* Increased padding */
+  background-color: #ffffff;
+  border-left: 5px solid #2A52BE; /* Primary blue color */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: left; /* Align text to the left within the quote */
+}
+
+#testimonials cite {
+  display: block;
+  margin-top: 15px; /* Increased margin */
+  font-style: normal;
+  font-weight: bold; /* Make cite more prominent */
+  text-align: right;
+  color: #2A52BE; /* Primary blue color */
+}
+
+/* Responsive adjustments for home details section */
+@media (max-width: 992px) { /* Adjust breakpoint for 2 items if needed */
+  .service-item,
+  .reason-item {
+    flex-basis: calc(50% - 30px); /* Adjust gap compensation if gap changes */
+  }
+}
+
+@media (max-width: 768px) {
+  .service-item,
+  .reason-item {
+    flex-basis: calc(100% - 40px); /* Full width on smaller screens */
+    /* Or simply flex-basis: 100%; if margins/padding are handled by the element itself */
+  }
+  .home-details-section {
+    padding: 30px 0; /* Reduce padding on smaller screens */
+  }
+  .home-details-section h2 {
+    font-size: 1.8rem; /* Adjust heading size for mobile */
+  }
+}
