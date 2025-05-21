@@ -1,79 +1,336 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #FFFFFF; /* White background for main content */
+    color: #333333; /* Dark gray for body text */
+    line-height: 1.6; /* Improved line height for readability */
 }
 
 .container {
-    width: 80%;
+    width: 85%; /* Slightly increased width */
+    max-width: 1200px; /* Added max-width for larger screens */
     margin: auto;
     overflow: hidden;
+    padding: 0 15px; /* Added padding to prevent content touching edges */
 }
 
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #2A52BE; /* Primary blue for headings */
+    margin-top: 1.5rem; /* Consistent top margin */
+    margin-bottom: 1rem; /* Consistent bottom margin */
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+
 /* Header */
+header .container { /* Target the container within the header */
+    display: flex;
+    justify-content: space-between; /* Puts logo on left, nav on right */
+    align-items: center; /* Vertically aligns them */
+}
+
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    background: #2A52BE; /* Primary blue background */
+    color: #FFFFFF; /* White text */
+    padding: 1rem 0; /* Adjusted padding for potentially taller flex content */
+    border-bottom: 3px solid #1E3A8A; /* Darker blue border */
+    /* text-align: center; No longer needed if using flex for alignment */
 }
 
 header .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Slightly adjusted logo size if needed */
     font-weight: bold;
+    margin: 0; /* Remove default margin */
+    color: #FFFFFF; /* Ensure logo text is white */
+    text-decoration: none; /* If logo is a link */
 }
 
-/* Navigation */
-nav {
-    background: #444;
-    color: #fff;
-    padding: 0.5rem 0;
-    text-align: center;
+/* Navigation - now nested in header */
+header nav {
+    background: none; /* Remove distinct background if nav is part of header */
+    color: #FFFFFF;
+    padding: 0; /* Remove padding, header container handles it */
+    text-align: right; /* Align nav links to the right */
+    box-shadow: none; /* Remove shadow if it was for standalone nav */
 }
 
-nav ul {
+header nav ul {
     padding: 0;
     list-style: none;
+    margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 25px; /* Increased spacing */
 }
 
-nav a {
-    color: #fff;
+nav ul li:last-child {
+    margin-right: 0; /* No margin for the last item */
+}
+
+header nav a { /* Specificity for nav links within header */
+    color: #FFFFFF;
     text-decoration: none;
+    font-size: 1rem; /* Adjusted font size */
+    padding: 0.5rem 0.8rem; /* Adjusted padding */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav a:hover, header nav a.active-nav {
+    background-color: #5D8BF4; /* Lighter blue for hover/active */
+    color: #FFFFFF;
 }
 
 /* Main content */
 main {
-    padding: 20px;
+    padding: 20px 0;
     min-height: 400px; /* Placeholder height */
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    background-color: #2A52BE; /* Primary blue */
+    color: #FFFFFF;
+    padding: 12px 25px; /* Adjusted padding */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none; /* Remove default border */
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #1E3A8A; /* Darker blue for hover */
+    color: #FFFFFF;
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 /* Footer */
 footer {
-    background: #333;
-    color: #fff;
+    background: #333333; /* Dark gray background */
+    color: #f0f0f0; /* Light gray text */
     text-align: center;
-    padding: 1rem 0;
-    position: relative; /* Changed from fixed to relative for now */
+    padding: 2rem 0; /* Increased padding */
+    margin-top: 30px; /* Space above footer */
     width: 100%;
-    bottom: 0;
+    /* position: relative; bottom: 0; - Removed as it's not always needed and can cause issues */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    nav ul li {
+    nav ul li { /* This will target the header nav on mobile */
         display: block;
         margin-bottom: 10px;
+        margin-right: 0;
+        text-align: center; /* Center nav links when stacked */
+    }
+    header .container { /* Stack logo and nav on mobile */
+        flex-direction: column;
+        align-items: center; /* Center logo and nav when stacked */
+    }
+    header nav {
+        text-align: center; /* Ensure nav itself is centered if it contains block items */
+        margin-top: 10px; /* Add some space between logo and nav when stacked */
     }
 
     .container {
-        width: 95%;
+        width: 90%;
+        padding: 0 10px;
     }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%; /* Allow full width within its parent */
+  position: relative;
+  margin: 0 auto 20px auto; /* Centered, margin bottom */
+  overflow: hidden;
+}
+
+/* Individual slides */
+.slide {
+  display: none;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  vertical-align: middle;
+  max-height: 450px; /* Max height for slideshow images */
+  object-fit: cover; /* Ensure image covers the area, might crop */
+}
+
+/* Text overlay on slides */
+.slide-text {
+  color: #FFFFFF; /* White text for better contrast */
+  font-size: 1.5rem; /* Adjusted font size */
+  padding: 15px 20px;
+  position: absolute;
+  bottom: 30px; /* Adjusted position */
+  width: 80%; /* Limit width for better readability */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: rgba(42, 82, 190, 0.7); /* Primary blue with transparency */
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -25px; /* Adjusted for potentially taller buttons */
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 28px; /* Slightly larger */
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(42, 82, 190, 0.5); /* Primary blue with transparency */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker primary blue background color */
+.prev:hover, .next:hover {
+  background-color: #2A52BE; /* Solid primary blue on hover */
+}
+
+/* Dots / indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px; /* Increased spacing */
+  background-color: #cccccc; /* Lighter gray for inactive dots */
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #2A52BE; /* Primary blue for active/hover dot */
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Alternating content section */
+.alternating-content {
+  padding: 40px 0;
+  background-color: #f9f9f9; /* Very light gray for subtle separation */
+}
+
+.alternating-content .row {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Increased gap */
+  margin-bottom: 40px; /* Increased space between rows */
+  flex-wrap: wrap;
+}
+.alternating-content .row:last-child {
+    margin-bottom: 0; /* No margin for the last row */
+}
+
+.alternating-content .image-container,
+.alternating-content .text-container {
+  flex: 1;
+  min-width: 300px; /* Adjusted min width */
+}
+
+.alternating-content .image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for images */
+}
+
+.alternating-content .text-container h3 {
+  margin-top: 0;
+  color: #2A52BE; /* Primary blue, consistent with other headings */
+}
+
+.alternating-content .text-container p {
+  line-height: 1.7; /* Slightly increased line height for this section */
+  font-size: 1.05rem; /* Slightly larger text for readability */
+}
+
+/* Contact Form Specific Styles (if any were added before, or for future) */
+.contact-form div {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for width 100% */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resize only */
+}
+
+
+/* Media query for smaller screens - Alternating content adjustments */
+@media (max-width: 768px) {
+  .alternating-content .row {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .alternating-content .image-container,
+  .alternating-content .text-container {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .alternating-content .text-container h3 {
+    font-size: 1.6rem; /* Adjust heading size for mobile */
+  }
+  .alternating-content .text-container {
+    text-align: left; /* Keep text left aligned on mobile for readability */
+  }
+   /* Order adjustment for alternating content not strictly needed with current HTML structure */
 }
