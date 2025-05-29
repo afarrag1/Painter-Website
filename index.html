@@ -3,172 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painter Business - Home</title>
+    <title>FS New Breed - Home</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">Painter Business Name/Logo</div>
+            <div class="logo">
+                <a href="index.html">Fatimeh Sayyad New Breed</a>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="instructors.html">Instructors</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-        <div class="slide fade">
-            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=400&q=80" style="width:100%" alt="Bright and modern freshly painted interior">
-            <div class="slide-text">Transform Your Home With Color</div>
-        </div>
-
-        <div class="slide fade">
-            <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1280&h=450&dpr=1&fit=crop" style="width:100%" alt="Home exterior with exceptional curb appeal after painting">
-            <div class="slide-text">Boost Your Curb Appeal</div>
-        </div>
-
-        <div class="slide fade">
-            <img src="https://images.pexels.com/photos/2826787/pexels-photo-2826787.jpeg?auto=compress&cs=tinysrgb&w=1280&h=450&dpr=1&fit=crop" style="width:100%" alt="Beautifully painted deck and backyard leisure area">
-            <div class="slide-text">The Details Make the Difference</div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-
-    <!-- The dots/circles -->
-    <div style="text-align:center; margin-bottom: 20px;">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-
-    <section class="alternating-content">
-        <div class="container"> <!-- Added container for consistent width -->
-            <div class="row">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Beautifully painted stylish living room">
-                </div>
-                <div class="text-container">
-                    <h3>Feature Title 1: Quality Interior Finishes</h3>
-                    <p>Discover our commitment to excellence. We use high-quality paints and materials to ensure a durable and beautiful finish for your interiors. Our skilled team pays attention to every detail, from preparation to the final coat.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="text-container">
-                    <h3>Feature Title 2: Stunning Exterior Transformations</h3>
-                    <p>Let us revitalize the exterior of your home or business. We prepare surfaces meticulously and apply weather-resistant paints for a long-lasting, vibrant look that enhances curb appeal and protects your investment.</p>
-                </div>
-                <div class="image-container">
-                    <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=450&h=350&dpr=1" alt="Beautifully painted modern house exterior">
-                </div>
-            </div>
-            <div class="row">
-                <div class="image-container">
-                    <img src="https://images.pexels.com/photos/3990599/pexels-photo-3990599.jpeg?auto=compress&cs=tinysrgb&w=450&h=350&dpr=1" alt="Modern kitchen with freshly painted cabinets">
-                </div>
-                <div class="text-container">
-                    <h3>Feature Title 3: Meticulous Preparation & Detail</h3>
-                    <p>We believe that a perfect paint job starts with meticulous preparation. Our team carefully prepares all surfaces and pays close attention to every detail to ensure a flawless and long-lasting finish.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="text-container">
-                    <h3>Feature Title 4: Eco-Friendly Options Available</h3>
-                    <p>We care about your health and the environment. Ask us about our range of low-VOC and eco-friendly paint options that minimize odors and environmental impact without compromising on quality or durability.</p>
-                </div>
-                <div class="image-container">
-                    <img src="https://images.pexels.com/photos/7218046/pexels-photo-7218046.jpeg?auto=compress&cs=tinysrgb&w=450&h=350&dpr=1" alt="Selection of eco-friendly paint cans and supplies">
-                </div>
-            </div>
-            <div class="row">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Happy homeowners admiring newly painted modern room">
-                </div>
-                <div class="text-container">
-                    <h3>Feature Title 5: Satisfaction Guaranteed</h3>
-                    <p>Your satisfaction is our top priority. We work closely with you throughout the project and stand behind our work to ensure you're delighted with the final results for your home or business.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <main>
-        <div class="container">
-            <h1>Welcome to Placeholder Painter Name</h1>
-            <p>We provide high-quality painting services for residential and commercial properties. Our team of experienced painters is dedicated to delivering exceptional results and customer satisfaction.</p>
-            <a href="contact.html" class="cta-button">Get a Free Quote</a>
-        </div>
+        <section class="hero">
+            <div class="hero-content container">
+                <h1>Forge Your Strength</h1>
+                <p class="tagline">Unleash Your Potential at Fatimeh Sayyad New Breed</p>
+                <a href="programs.html" class="cta-button">View Our Programs</a>
+            </div>
+        </section>
+
+        <section class="home-intro container">
+            <h2>Welcome to FS New Breed</h2>
+            <p>Placeholder text introducing the gym: its core values, what it offers, and its commitment to martial arts excellence. This section will briefly set the tone for visitors.</p>
+            <hr class="section-divider">
+        </section>
+
+        <section class="program-highlights container">
+            <h2>Our Core Disciplines</h2>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <img src="https://images.pexels.com/photos/7045745/pexels-photo-7045745.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1&fit=crop" alt="Intense Brazilian Jiu-Jitsu grappling">
+                    <h3>Brazilian Jiu-Jitsu</h3>
+                    <p>Master the art of ground fighting and submissions. (Placeholder)</p>
+                    <a href="programs.html#bjj" class="learn-more-link">Learn More</a>
+                </div>
+                <div class="highlight-item">
+                    <img src="https://images.pexels.com/photos/9649346/pexels-photo-9649346.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1&fit=crop" alt="Powerful Muay Thai striking training">
+                    <h3>Muay Thai</h3>
+                    <p>Develop powerful strikes using the art of eight limbs. (Placeholder)</p>
+                    <a href="programs.html#muaythai" class="learn-more-link">Learn More</a>
+                </div>
+                <div class="highlight-item">
+                    <img src="https://images.pexels.com/photos/8995164/pexels-photo-8995164.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1&fit=crop" alt="Dynamic Mixed Martial Arts action">
+                    <h3>MMA</h3>
+                    <p>Combine striking and grappling in dynamic MMA training. (Placeholder)</p>
+                    <a href="programs.html#mma" class="learn-more-link">Learn More</a>
+                </div>
+            </div>
+            <hr class="section-divider">
+        </section>
+
+        <section class="community-energy container">
+            <h2>More Than A Gym, It's A Community</h2>
+            <img src="https://images.pexels.com/photos/8981732/pexels-photo-8981732.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1&fit=crop" alt="Energetic community at FS New Breed" style="width:100%; max-width:600px; margin-bottom:15px; display:block; margin-left:auto; margin-right:auto;">
+            <p>Placeholder describing the vibrant community, the energy of the gym, and the supportive training environment. We foster growth, discipline, and respect.</p>
+        </section>
     </main>
-
-    <section class="home-details-section">
-        <div class="container">
-            <section id="services-overview">
-                <h2>Explore Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Interior Painting</h3>
-                        <p>Transform your indoor spaces with our expert interior painting services. We handle everything from single rooms to full home makeovers, ensuring a perfect finish every time.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Exterior Painting</h3>
-                        <p>Boost your home's curb appeal and protect it from the elements with our professional exterior painting. We use high-quality, weather-resistant paints for lasting beauty.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Commercial Painting</h3>
-                        <p>We offer comprehensive painting solutions for businesses, including offices, retail spaces, and industrial buildings. Minimal disruption, maximum impact for your workspace.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Deck Staining</h3>
-                        <p>Revitalize your outdoor living spaces with our professional deck staining services. We protect and beautify your deck, making it a perfect spot for relaxation.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="why-choose-us">
-                <h2>Why Choose Us?</h2>
-                <div class="reasons-grid">
-                    <div class="reason-item">
-                        <h3>Experienced Professionals</h3>
-                        <p>Our team consists of highly skilled and experienced painters dedicated to delivering top-notch results and exceptional craftsmanship on every project.</p>
-                    </div>
-                    <div class="reason-item">
-                        <h3>Quality Materials</h3>
-                        <p>We use only premium quality paints and materials to ensure a durable, long-lasting, and beautiful finish that you can enjoy for years to come.</p>
-                    </div>
-                    <div class="reason-item">
-                        <h3>Customer Focused</h3>
-                        <p>Your satisfaction is our priority. We work closely with you, providing clear communication and personalized service from start to finish.</p>
-                    </div>
-                     <div class="reason-item">
-                        <h3>Attention to Detail</h3>
-                        <p>From meticulous preparation to the final stroke, we pay close attention to every detail, ensuring a flawless finish that exceeds expectations.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="testimonials">
-                <h2>What Our Clients Say</h2>
-                <blockquote>
-                    <p>"Placeholder Painter Name did an amazing job painting our house. The team was professional, efficient, and the results exceeded our expectations!"</p>
-                    <cite>- Satisfied Customer</cite>
-                </blockquote>
-            </section>
-        </div>
-    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Painter Business. All Rights Reserved.</p>
+            <p>&copy; 2023 Fatimeh Sayyad New Breed. All Rights Reserved.</p>
+            <p>Follow us on <a href="https://www.instagram.com/fsnewbreed/" target="_blank">Instagram</a></p>
         </div>
     </footer>
     <script src="js/script.js"></script>

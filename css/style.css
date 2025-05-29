@@ -1,424 +1,495 @@
-/* General styles */
+/* CSS styles for FS New Breed website */
+
+:root {
+    /* Color Palette */
+    --dark-bg: #1a1a1a;
+    --light-text: #e0e0e0;
+    --accent-color: #ff4500; /* Orangered */
+    --secondary-bg: #2c2c2c;
+    --accent-hover-color: #ff6a36; /* Lighter orange for hover */
+
+    /* Typography */
+    --body-font: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    --heading-font: 'Impact', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #FFFFFF; /* White background for main content */
-    color: #333333; /* Dark gray for body text */
-    line-height: 1.6; /* Improved line height for readability */
+    font-family: var(--body-font);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
 }
 
-.container {
-    width: 85%; /* Slightly increased width */
-    max-width: 1200px; /* Added max-width for larger screens */
-    margin: auto;
-    overflow: hidden;
-    padding: 0 15px; /* Added padding to prevent content touching edges */
-}
-
-/* Headings */
+/* Heading Styles */
 h1, h2, h3, h4, h5, h6 {
-    color: #2A52BE; /* Primary blue for headings */
-    margin-top: 1.5rem; /* Consistent top margin */
-    margin-bottom: 1rem; /* Consistent bottom margin */
+    font-family: var(--heading-font);
+    color: var(--accent-color);
+    margin-bottom: 0.75em;
+    text-transform: uppercase;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-
-/* Header */
-header .container { /* Target the container within the header */
-    display: flex;
-    justify-content: space-between; /* Puts logo on left, nav on right */
-    align-items: center; /* Vertically aligns them */
+/* Paragraph Styles */
+p {
+    margin-bottom: 1em;
 }
 
+/* Link Styles */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-hover-color);
+    text-decoration: underline;
+}
+
+/* Container Class */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centering */
+    padding: 20px 0; /* Vertical padding for general container use */
+}
+
+/* Header Styling */
 header {
-    background: #2A52BE; /* Primary blue background */
-    color: #FFFFFF; /* White text */
-    padding: 1rem 0; /* Adjusted padding for potentially taller flex content */
-    border-bottom: 3px solid #1E3A8A; /* Darker blue border */
-    /* text-align: center; No longer needed if using flex for alignment */
+    background-color: var(--secondary-bg); /* Darker background for header */
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--accent-color);
 }
 
-header .logo {
-    font-size: 1.8rem; /* Slightly adjusted logo size if needed */
-    font-weight: bold;
-    margin: 0; /* Remove default margin */
-    color: #FFFFFF; /* Ensure logo text is white */
-    text-decoration: none; /* If logo is a link */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add horizontal padding specifically for header/footer containers */
 }
 
-/* Navigation - now nested in header */
-header nav {
-    background: none; /* Remove distinct background if nav is part of header */
-    color: #FFFFFF;
-    padding: 0; /* Remove padding, header container handles it */
-    text-align: right; /* Align nav links to the right */
-    box-shadow: none; /* Remove shadow if it was for standalone nav */
+.logo a {
+    font-family: var(--heading-font);
+    font-size: 1.8em; /* Larger logo text */
+    color: var(--light-text); /* Light text for logo against dark header */
+    text-decoration: none;
+}
+.logo a:hover {
+    color: var(--accent-color);
 }
 
-header nav ul {
-    padding: 0;
+/* Navigation Styling */
+nav ul {
     list-style: none;
-    margin: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 25px; /* Increased spacing */
+    margin-left: 20px;
 }
 
-nav ul li:last-child {
-    margin-right: 0; /* No margin for the last item */
+nav ul li a {
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    color: var(--light-text); /* Light text for nav links */
+    font-size: 1em;
+    padding-bottom: 5px; /* Base padding for alignment with border */
 }
 
-header nav a { /* Specificity for nav links within header */
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 1rem; /* Adjusted font size */
-    padding: 0.5rem 0.8rem; /* Adjusted padding */
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+nav ul li a:hover,
+nav ul li a.active { /* Style for active page link */
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color); /* Indication for hover/active */
 }
 
-header nav a:hover, header nav a.active-nav {
-    background-color: #5D8BF4; /* Lighter blue for hover/active */
-    color: #FFFFFF;
-}
-
-/* Main content */
-main {
-    padding: 20px 0;
-    min-height: 400px; /* Placeholder height */
-}
-
-/* Buttons */
-.cta-button {
-    display: inline-block;
-    background-color: #2A52BE; /* Primary blue */
-    color: #FFFFFF;
-    padding: 12px 25px; /* Adjusted padding */
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none; /* Remove default border */
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    background-color: #1E3A8A; /* Darker blue for hover */
-    color: #FFFFFF;
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Footer */
+/* Footer Styling */
 footer {
-    background: #333333; /* Dark gray background */
-    color: #f0f0f0; /* Light gray text */
+    background-color: var(--secondary-bg);
+    color: var(--light-text);
     text-align: center;
-    padding: 2rem 0; /* Increased padding */
+    padding: 2rem 0;
     margin-top: 30px; /* Space above footer */
-    width: 100%;
-    /* position: relative; bottom: 0; - Removed as it's not always needed and can cause issues */
+    border-top: 3px solid var(--accent-color);
 }
 
-/* Responsive adjustments */
+footer .container {
+     padding: 0 20px; /* Add horizontal padding specifically for header/footer containers */
+}
+
+footer p {
+    margin-bottom: 0.5em;
+}
+
+footer a {
+    color: var(--accent-color); /* Accent color for Instagram link */
+}
+footer a:hover {
+    color: var(--accent-hover-color);
+}
+
+/* Responsive Navigation (Basic - for smaller screens) */
 @media (max-width: 768px) {
-    nav ul li { /* This will target the header nav on mobile */
-        display: block;
-        margin-bottom: 10px;
-        margin-right: 0;
-        text-align: center; /* Center nav links when stacked */
-    }
-    header .container { /* Stack logo and nav on mobile */
+    header .container {
         flex-direction: column;
-        align-items: center; /* Center logo and nav when stacked */
-    }
-    header nav {
-        text-align: center; /* Ensure nav itself is centered if it contains block items */
-        margin-top: 10px; /* Add some space between logo and nav when stacked */
+        align-items: center;
     }
 
-    .container {
-        width: 90%;
-        padding: 0 10px;
+    .logo {
+        margin-bottom: 15px;
     }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.5rem; }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+    nav ul li a { /* Ensure hover/active indication is consistent on mobile */
+        padding-bottom: 3px; /* Maintain padding for border */
+    }
 }
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 100%; /* Allow full width within its parent */
-  position: relative;
-  margin: 0 auto 20px auto; /* Centered, margin bottom */
-  overflow: hidden;
+/* General Page Title Styling (for H1 at the top of each page's main content) */
+main .container > h1 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Individual slides */
-.slide {
-  display: none;
-  text-align: center;
+/* About Page Specifics (image floats are inline for now, can be moved to classes) */
+#meet-fatimeh img, #philosophy img, #facility img { /* Basic styling for floated images on about page */
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+}
+/* Clearing floats - can be done with clearfix class or simple div as in HTML */
+.clear { clear: both; }
+
+
+/* Program Sections */
+.program-section {
+    margin-bottom: 40px; /* Increased spacing */
+    padding-bottom: 30px; /* Increased spacing */
+    border-bottom: 1px solid var(--secondary-bg);
+    overflow: hidden; /* To contain floats */
+}
+.program-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.program-section h2 {
+    text-align: left; /* Align program titles to the left */
+    font-size: 2.2em; /* Slightly smaller than main page H1 */
+}
+.program-section img {
+    max-width: 350px; /* Adjusted size */
+    float: right;
+    margin-left: 25px; /* Increased margin */
+    margin-bottom: 15px; /* Increased margin */
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+}
+.program-section p:last-of-type { /* For the "Suitable for:" paragraph */
+    font-weight: bold;
+    color: var(--light-text); /* Ensure it's light text */
 }
 
-.slide img {
-  width: 100%;
-  vertical-align: middle;
-  max-height: 450px; /* Max height for slideshow images */
-  object-fit: cover; /* Ensure image covers the area, might crop */
+
+/* Schedule Table */
+.schedule-table-container {
+    overflow-x: auto; /* Ensures table is scrollable on small screens */
+    margin-top: 20px;
+    border: 1px solid var(--secondary-bg); /* Border around container */
+    border-radius: 5px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid var(--secondary-bg);
+    padding: 12px 15px; /* Increased padding */
+    text-align: left;
+    min-width: 100px; /* Minimum width for cells */
+}
+th {
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: 0.9em; /* Adjusted font size */
+}
+tbody tr:nth-child(even) {
+    background-color: #2a2a2a; /* Slightly different for even rows, subtle striping */
+}
+tbody tr:hover {
+    background-color: #3a3a3a; /* Hover effect for rows */
 }
 
-/* Text overlay on slides */
-.slide-text {
-  color: #FFFFFF; /* White text for better contrast */
-  font-size: 1.5rem; /* Adjusted font size */
-  padding: 15px 20px;
-  position: absolute;
-  bottom: 30px; /* Adjusted position */
-  width: 80%; /* Limit width for better readability */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  background-color: rgba(42, 82, 190, 0.7); /* Primary blue with transparency */
-  font-weight: bold;
-  border-radius: 5px;
+
+/* Instructors Grid */
+.instructors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap */
+}
+.instructor-profile {
+    background-color: var(--secondary-bg);
+    padding: 25px; /* Increased padding */
+    border-radius: 8px;
+    flex-basis: calc(33.333% - 20px); /* (100% / 3) - (gap*2/3) */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+.instructor-profile img {
+    width: 180px; /* Increased size */
+    height: 180px; /* Increased size */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px; /* Increased margin */
+    border: 3px solid var(--accent-color);
+}
+.instructor-profile h3 {
+    font-size: 1.6em; /* Adjusted font size */
+}
+.instructor-title {
+    font-style: italic;
+    color: var(--light-text);
+    opacity: 0.8;
+    margin-bottom: 15px; /* Increased margin */
+    font-size: 1em;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -25px; /* Adjusted for potentially taller buttons */
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 28px; /* Slightly larger */
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(42, 82, 190, 0.5); /* Primary blue with transparency */
+
+/* Gallery Grid */
+.gallery-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger minmax */
+    gap: 20px; /* Increased gap */
+}
+.gallery-image-item img {
+    width: 100%;
+    height: 220px; /* Increased height */
+    object-fit: cover;
+    border-radius: 5px;
+    border: 3px solid var(--accent-color); /* Thicker border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-image-item img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 0 15px var(--accent-color); /* Glow effect */
 }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
 
-/* On hover, add a darker primary blue background color */
-.prev:hover, .next:hover {
-  background-color: #2A52BE; /* Solid primary blue on hover */
-}
-
-/* Dots / indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 5px; /* Increased spacing */
-  background-color: #cccccc; /* Lighter gray for inactive dots */
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #2A52BE; /* Primary blue for active/hover dot */
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* Alternating content section */
-.alternating-content {
-  padding: 40px 0;
-  background-color: #f9f9f9; /* Very light gray for subtle separation */
-}
-
-.alternating-content .row {
-  display: flex;
-  align-items: center;
-  gap: 40px; /* Increased gap */
-  margin-bottom: 40px; /* Increased space between rows */
-  flex-wrap: wrap;
-}
-.alternating-content .row:last-child {
-    margin-bottom: 0; /* No margin for the last row */
-}
-
-.alternating-content .image-container,
-.alternating-content .text-container {
-  flex: 1;
-  min-width: 300px; /* Adjusted min width */
-}
-
-.alternating-content .image-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px; /* Slightly more rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for images */
-}
-
-.alternating-content .text-container h3 {
-  margin-top: 0;
-  color: #2A52BE; /* Primary blue, consistent with other headings */
-}
-
-.alternating-content .text-container p {
-  line-height: 1.7; /* Slightly increased line height for this section */
-  font-size: 1.05rem; /* Slightly larger text for readability */
-}
-
-/* Contact Form Specific Styles (if any were added before, or for future) */
+/* Contact Form */
 .contact-form div {
+    margin-bottom: 20px; /* Increased spacing */
+}
+.contact-form label {
+    display: block;
+    margin-bottom: 8px; /* Increased spacing */
+    color: var(--accent-color);
+    font-weight: bold; /* Make labels bolder */
+    text-transform: uppercase; /* Match heading style */
+    font-size: 0.9em;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="subject"], /* Added subject type */
+.contact-form textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--light-text);
+    border-radius: 4px;
+    font-family: var(--body-font); /* Ensure body font is used */
+}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="subject"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-hover-color);
+    box-shadow: 0 0 8px var(--accent-hover-color);
+}
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px; /* Minimum height for textarea */
+}
+/* .contact-form .cta-button is already styled globally */
+
+/* Responsive adjustments for new sections */
+@media (max-width: 992px) {
+    .instructor-profile {
+        flex-basis: calc(50% - 15px); /* (100% / 2) - (gap*1/2) */
+    }
+}
+@media (max-width: 768px) {
+    .program-section img {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+        margin-bottom: 20px; /* Space below image when stacked */
+    }
+    .contact-details-form-container { /* For contact page layout */
+        flex-direction: column;
+    }
+}
+@media (max-width: 600px) {
+    .instructor-profile {
+        flex-basis: 100%;
+    }
+    main .container > h1 { /* Reduce H1 further on very small screens */
+        font-size: 2.2em;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/8617731/pexels-photo-8617731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text);
+    text-align: center;
+    padding: 100px 20px; /* More padding */
+    min-height: 70vh; /* Make it taller */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5em; /* Larger hero H1 */
+    margin-bottom: 0.5em;
+    color: #fff; /* White for hero H1 for contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Text shadow for readability */
+}
+.hero-content .tagline {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    color: var(--light-text);
+}
+.cta-button { /* General CTA button, can be used elsewhere too */
+    font-family: var(--heading-font);
+    background-color: var(--accent-color);
+    color: #fff; /* White text on accent button */
+    padding: 15px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Ensure it behaves as a block for padding/margin */
+}
+.cta-button:hover {
+    background-color: var(--accent-hover-color);
+    color: #fff; /* Keep text color consistent */
+    text-decoration: none; /* Override global a:hover */
+    border-bottom: none; /* Remove underline that might come from global 'a:hover' */
+    padding-bottom: 15px; /* Keep padding consistent */
+}
+
+/* Section Titles for home page sections */
+.home-intro h2, .program-highlights h2, .community-energy h2 {
+    text-align: center;
+    font-size: 2.5em; /* Larger section titles */
+    margin-bottom: 40px; /* More space below titles */
+}
+
+/* Section Divider */
+.section-divider {
+    border: 0;
+    height: 2px;
+    background: var(--accent-color);
+    width: 100px; /* Shorter divider */
+    margin: 40px auto; /* Centered with more space */
+}
+
+/* Program Highlights Section */
+.program-highlights { /* Added to ensure its .container rules apply if needed */
+    padding-top: 20px; /* Example, adjust as needed */
+    padding-bottom: 20px;
+}
+.highlights-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px; /* More gap */
+}
+
+.highlight-item {
+    background-color: var(--secondary-bg);
+    padding: 25px; /* More padding */
+    border-radius: 8px;
+    text-align: center;
+    flex-basis: calc(33.333% - 40px); /* Adjust for 3 items, considering gap */
+    min-width: 280px; /* Prevent items from becoming too small */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Stronger shadow */
+    margin-bottom: 20px; /* Space for when items wrap */
+}
+
+.highlight-item img {
+    width: 100%; /* Make image responsive within its container */
+    max-height: 200px; /* Control image height */
+    object-fit: cover; /* Ensure image covers the area, might crop */
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
+.highlight-item h3 {
+    font-size: 1.8em; /* Larger highlight item titles */
+    margin-bottom: 10px;
+}
+.learn-more-link {
+    display: inline-block;
+    margin-top: 15px;
     font-weight: bold;
-    color: #333333;
+    /* Uses global 'a' styling for color */
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="tel"],
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Important for width 100% */
+/* Community/Energy Section */
+.community-energy {
+    text-align: center; /* Center text content */
+    padding-bottom: 30px;
+}
+.community-energy img { /* Style for the specific image in this section */
+    border: 3px solid var(--accent-color); /* Accent border for this image */
+    border-radius: 5px;
+    /* width, max-width, margin-bottom, display already inline, but can be here too */
+    /* e.g. display: block; margin-left: auto; margin-right: auto; */
 }
 
-.contact-form textarea {
-    resize: vertical; /* Allow vertical resize only */
+/* Responsive Adjustments for Homepage Sections */
+@media (max-width: 992px) {
+    .highlight-item {
+        flex-basis: calc(50% - 30px); /* 2 items per row */
+    }
 }
-
-
-/* Media query for smaller screens - Alternating content adjustments */
-@media (max-width: 768px) {
-  .alternating-content .row {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .alternating-content .image-container,
-  .alternating-content .text-container {
-    flex-basis: 100%;
-    text-align: center;
-  }
-  .alternating-content .text-container h3 {
-    font-size: 1.6rem; /* Adjust heading size for mobile */
-  }
-  .alternating-content .text-container {
-    text-align: left; /* Keep text left aligned on mobile for readability */
-  }
-   /* Order adjustment for alternating content not strictly needed with current HTML structure */
-}
-
-/* Home Details Section (Services, Why Choose Us, Testimonials) */
-.home-details-section {
-  background-color: #f0f4f8; /* Light, distinct background */
-  padding: 40px 0;
-  text-align: center; /* Center its block children if they are inline-block or have auto margins */
-}
-
-.home-details-section h2 {
-  margin-bottom: 30px;
-  /* text-align: center; already centered by parent */
-}
-
-.services-grid,
-.reasons-grid {
-  display: flex;
-  justify-content: space-around; /* Distribute items evenly */
-  flex-wrap: wrap;
-  gap: 20px; /* Space between items */
-  margin-top: 20px;
-}
-
-.service-item,
-.reason-item {
-  background-color: #ffffff;
-  padding: 25px; /* Increased padding */
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Slightly enhanced shadow */
-  flex-basis: calc(50% - 40px); /* For 2 items per row on wider screens */
-  text-align: left; /* Override parent's center for item content */
-  margin-bottom: 20px; /* Ensure space when wrapping */
-}
-
-.service-item h3,
-.reason-item h3 {
-  color: #2A52BE; /* Primary blue color */
-  margin-top: 0; /* Remove top margin if it's the first element */
-  margin-bottom: 10px;
-  font-size: 1.4rem; /* Adjusted font size */
-}
-
-.service-item p,
-.reason-item p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555; /* Slightly lighter text for paragraphs */
-}
-
-#testimonials blockquote {
-  max-width: 700px; /* Slightly wider for better readability */
-  margin: 30px auto; /* Increased top/bottom margin */
-  padding: 25px; /* Increased padding */
-  background-color: #ffffff;
-  border-left: 5px solid #2A52BE; /* Primary blue color */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: left; /* Align text to the left within the quote */
-}
-
-#testimonials cite {
-  display: block;
-  margin-top: 15px; /* Increased margin */
-  font-style: normal;
-  font-weight: bold; /* Make cite more prominent */
-  text-align: right;
-  color: #2A52BE; /* Primary blue color */
-}
-
-/* Responsive adjustments for home details section */
-@media (max-width: 992px) { /* Adjust breakpoint for 2 items if needed */
-  .service-item,
-  .reason-item {
-    flex-basis: calc(50% - 30px); /* Adjust gap compensation if gap changes */
-  }
-}
-
-@media (max-width: 768px) {
-  .service-item,
-  .reason-item {
-    flex-basis: calc(100% - 40px); /* Full width on smaller screens */
-    /* Or simply flex-basis: 100%; if margins/padding are handled by the element itself */
-  }
-  .home-details-section {
-    padding: 30px 0; /* Reduce padding on smaller screens */
-  }
-  .home-details-section h2 {
-    font-size: 1.8rem; /* Adjust heading size for mobile */
-  }
+@media (max-width: 600px) { /* Changed from 768 to 600 for finer control */
+    .highlight-item {
+        flex-basis: 100%; /* 1 item per row */
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content .tagline {
+        font-size: 1.2em;
+    }
+    .home-intro h2, .program-highlights h2, .community-energy h2 {
+        font-size: 2em;
+    }
 }
