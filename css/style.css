@@ -161,6 +161,128 @@ footer a:hover {
     }
 }
 
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: none; /* Hidden by default, shown in media query */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above other header content if nav overlays */
+}
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-text);
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Hamburger Animation (when active) */
+.hamburger-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Desktop Navigation (Ensure it's not affected by mobile styles) */
+@media (min-width: 769px) {
+    header nav ul {
+        display: flex; /* This should already be there from global nav styles */
+        flex-direction: row; /* Explicitly row for desktop */
+        align-items: center;
+        /* Reset any mobile-specific styles if they leak */
+        position: static;
+        width: auto;
+        background-color: transparent;
+        max-height: none; /* Ensure no max-height from mobile */
+        border-top: none; /* Ensure no border from mobile */
+    }
+    header nav ul li {
+        margin-left: 20px; /* From global nav styles */
+        margin-bottom: 0; /* Reset mobile margin */
+        width: auto; /* Reset mobile width */
+        text-align: left; /* Reset mobile text-align */
+    }
+    header nav ul li a {
+        display: inline; /* Or inline-block, ensure it's not block from mobile */
+        padding: 5px 0; /* Adjust as per original desktop nav link styling, ensure padding-bottom:5px is for border */
+        /* border-bottom: 2px solid var(--accent-color); is for active/hover, not all links */
+    }
+     header nav ul li a:hover,
+     header nav ul li a.active {
+        /* Styles for hover/active are already defined globally, ensure they are not overridden by mobile defaults */
+        background-color: transparent; /* Ensure no mobile hover bg */
+        border-bottom: 2px solid var(--accent-color); /* Indication for hover/active */
+        padding-bottom: 5px; /* maintain consistency with base padding */
+    }
+}
+
+
+/* Mobile Navigation Styles (within @media (max-width: 768px)) - Placed after general responsive nav styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+        position: absolute; /* Position relative to header .container or header if header .container is static */
+        right: 20px;
+        top: 15px; /* Adjust to vertically align with logo if possible */
+    }
+
+    header nav { /* The container of ul */
+        position: absolute;
+        top: 70px; /* Adjust based on actual header height, ensure it's below the border */
+        left: 0;
+        right: 0;
+        background-color: var(--secondary-bg);
+        z-index: 1000;
+        overflow: hidden;
+        max-height: 0; /* Initially hidden */
+        transition: max-height 0.3s ease-out;
+    }
+
+    header nav.nav-open { /* Class added by JS to show menu */
+        max-height: 500px; /* Or enough to show all items */
+        border-top: 1px solid var(--accent-color); /* Separator */
+        padding-bottom: 10px; /* Padding at the bottom of the open menu */
+    }
+
+    /* Original nav ul stacking from previous step, ensure it's compatible */
+    header nav ul {
+        /* flex-direction: column; */ /* Already set in general responsive */
+        /* align-items: center; */   /* Already set in general responsive */
+        padding: 10px 0;       /* Padding when open */
+        width: 100%;
+    }
+
+    header nav ul li {
+        /* margin-left: 0; */       /* Already set in general responsive */
+        /* margin-bottom: 15px; */ /* Increased from 10px in general responsive */
+        width: 100%;
+        text-align: center;
+    }
+    /* header nav ul li:last-child { margin-bottom: 0; } */ /* Already set in general responsive */
+
+    header nav ul li a {
+        display: block; /* Make link take full width of li */
+        padding: 10px 0;
+        border-bottom: none; /* Remove desktop hover/active border style */
+    }
+    header nav ul li a:hover,
+    header nav ul li a.active {
+        color: var(--accent-color);
+        background-color: rgba(255,255,255,0.1); /* Subtle hover for mobile */
+        border-bottom: none; /* Ensure no border from desktop */
+        /* padding-bottom: 10px; */ /* Keep padding consistent from base mobile 'a' */
+    }
+}
+
+
 /* Map Container for Responsive Iframe */
 .map-container {
     position: relative;
